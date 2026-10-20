@@ -7,10 +7,19 @@ from pymongo.database import Database
 
 load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
-MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
+MONGODB_URI = os.getenv("MONGODB_URI")
 MONGODB_DATABASE = os.getenv("MONGODB_DATABASE", "ai_blog_agent")
 
-client = MongoClient(MONGODB_URI, serverSelectionTimeoutMS=5000)
+if not MONGODB_URI:
+    raise RuntimeError(
+        "MONGODB_URI is not set. Configure it in your .env file or Render environment."
+    )
+
+client = MongoClient(
+    MONGODB_URI,
+    serverSelectionTimeoutMS=10000
+)
+
 database: Database = client[MONGODB_DATABASE]
 
 
