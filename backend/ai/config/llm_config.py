@@ -19,5 +19,5 @@ def get_llm(temperature=0.7, fast=False):
         model=FAST_MODEL if fast else WRITER_MODEL,
         temperature=temperature,
         groq_api_key=key,
-        max_tokens=1200   # ✅ prevent errors
+        max_tokens=1200
     )

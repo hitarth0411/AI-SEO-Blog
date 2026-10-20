@@ -55,9 +55,7 @@ def fallback_seo_payload(state):
     improved = draft
     faq_count_ok = 5 <= count_faq_questions(improved) <= 8
     meta_title = title[:60]
-    meta_description = (
-        f"{title} - practical guidance, comparisons, FAQs, and decision support for {state['topic']}."
-    )[:155]
+    meta_description = str(title)[:155]
     keywords = state.get("keywords", {}).get("primary_keywords", [])[:2] + state.get("keywords", {}).get("secondary_keywords", [])[:3]
 
     return {
@@ -110,9 +108,7 @@ def seo_agent(state):
     if not seo.get("meta_title"):
         seo["meta_title"] = str(seo["title"])[:60]
     if not seo.get("meta_description"):
-        seo["meta_description"] = (
-            f"{seo['title']} - practical insights and answers about {state['topic']}."
-        )[:155]
+        seo["meta_description"] = str(seo["title"])[:155]
     if not isinstance(seo.get("keywords"), list):
         seo["keywords"] = keywords.get("primary_keywords", [])[:2] + keywords.get("secondary_keywords", [])[:3]
     if not isinstance(seo.get("seo_checklist"), dict):

@@ -45,7 +45,9 @@ OUTLINE REQUIREMENTS
   - listicle: select a meaningful organizing or ranking principle and explain
     items that fit it; do not pad the list with arbitrary entries.
   - guide: order actionable steps for the task; use stages and prerequisites
-    relevant to the subject.
+    relevant to the subject. Use a how-to structure only when the topic is a
+    task someone can perform; otherwise explain the topic in the form that best
+    serves the reader, without inventing steps or practical advice.
   - review: evaluate the specific subject using relevant evidence, limitations,
     and audience fit; include alternatives only when they are meaningful.
   - informational: explain the concept in the order a reader needs, using
@@ -58,6 +60,10 @@ OUTLINE REQUIREMENTS
 - Use research as evidence for relevant distinctions and specifics. Do not
   fabricate facts, product names, statistics, or claims. If research is thin,
   keep the outline appropriately scoped rather than pretending certainty.
+- Include advice, workflows, tools, examples, comparisons, or recommendations
+  only when they are relevant to this topic and useful for the stated goal.
+  Never add them merely because the blog type is "guide" or because they are
+  common in other guides.
 - Avoid filler, duplicate sections, vague headings, and generic SEO headings
   such as "Overview", "Key Features", "Benefits", "Use Cases", "Best Practices",
   or "Conclusion" unless a particular heading is essential and made specific to

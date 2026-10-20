@@ -34,7 +34,8 @@ You must check and improve all of the following:
 7. Strong readability: short paragraphs, bullets where useful, clean formatting
 8. Real decision value, not filler
 9. Add links only when they genuinely improve usefulness
-10. Conclusion with next-step guidance
+10. A conclusion that fits the article; include next-step guidance only when it
+    is useful for this topic and reader intent
 
 ========================
 LINK RULE
@@ -50,6 +51,9 @@ STRICT RULES
 - Keep the article in markdown.
 - Keep the article aligned with the supplied outline.
 - Do not invent unsupported facts.
+- Keep every recommendation, example, and next step specific to the topic.
+  Do not add practical advice or a workflow unless it genuinely helps the
+  reader.
 - Do not add duplicate titles.
 - Do not use headings deeper than ###.
 - If the draft already has strong parts, improve rather than rewrite unnecessarily.

@@ -57,7 +57,7 @@ def normalize_outline(outline, topic):
     if not isinstance(outline, dict):
         raise ValueError("Outline output must be a JSON object.")
 
-    title = (outline or {}).get("title") or f"{topic}: practical guide"
+    title = (outline or {}).get("title") or str(topic).strip()
     raw_sections = (outline or {}).get("sections") or []
     if not isinstance(raw_sections, list):
         raise ValueError("Outline sections must be a JSON array.")
@@ -187,45 +187,45 @@ def fallback_outline(topic, blog_type="informational"):
         ],
         "guide": [
             {
-                "heading": f"Where most people get stuck with {topic}",
+                "heading": f"What to clarify before approaching {topic}",
                 "subsections": [
-                    "What makes the first step confusing",
-                    "What to prepare before starting",
+                    "The context or prerequisites that matter",
+                    "Common constraints that affect the approach",
                 ],
             },
             {
-                "heading": f"How {topic} works without the usual jargon",
+                "heading": f"The key ideas behind {topic}",
                 "subsections": [
-                    "Core pieces that affect outcomes",
-                    "How to think about quality versus speed",
+                    "Relevant concepts and how they relate",
+                    "What changes across situations or use cases",
                 ],
             },
             {
-                "heading": f"A step-by-step workflow to get better results with {topic}",
+                "heading": f"An approach to {topic} that fits the goal",
                 "subsections": [
-                    "What to do first",
-                    "How to improve weak output",
+                    "The steps or stages relevant to this task",
+                    "How to check whether the approach is working",
                 ],
             },
             {
-                "heading": f"When to use different approaches for {topic}",
+                "heading": f"How context changes the right approach to {topic}",
                 "subsections": [
-                    "Best path for beginners",
-                    "When advanced setups are worth it",
+                    "Factors that may call for a different method",
+                    "When another approach is more appropriate",
                 ],
             },
             {
-                "heading": f"Mistakes that make {topic} harder than it should be",
+                "heading": f"Limitations and pitfalls to consider with {topic}",
                 "subsections": [
-                    "What causes poor output quality",
-                    "How to correct issues early",
+                    "Issues supported by the available topic context",
+                    "Ways to avoid or address them where applicable",
                 ],
             },
             {
-                "heading": f"How to decide your next step with {topic}",
+                "heading": f"What to take away about {topic}",
                 "subsections": [
-                    "What to keep doing",
-                    "What to test next",
+                    "The main points for the reader's goal",
+                    "A relevant next step, if one is needed",
                 ],
             },
         ],
@@ -277,45 +277,45 @@ def fallback_outline(topic, blog_type="informational"):
 
     default_sections = [
         {
-            "heading": f"What makes {topic} confusing for buyers or beginners",
+            "heading": f"What {topic} means in this context",
             "subsections": [
-                "Where expectations usually break",
-                "What users actually need before choosing",
+                "The scope and key terms",
+                "Important context for understanding the topic",
             ],
         },
         {
-            "heading": f"How {topic} works in real workflows",
+            "heading": f"How {topic} works or develops",
             "subsections": [
-                "Core moving parts that change results",
-                "Where teams lose time or quality",
+                "The main elements or stages",
+                "How they affect one another",
             ],
         },
         {
-            "heading": f"Which tools, approaches, or options matter most for {topic}",
+            "heading": f"What matters most when considering {topic}",
             "subsections": [
-                "Best fit by use case",
-                "Trade-offs that affect output quality",
+                "Relevant factors or distinctions",
+                "How context changes their importance",
             ],
         },
         {
-            "heading": f"A practical workflow to get better results with {topic}",
+            "heading": f"Examples or applications of {topic}",
             "subsections": [
-                "Step-by-step process",
-                "Checks before publishing or shipping",
+                "Relevant cases supported by the topic context",
+                "What these examples illustrate",
             ],
         },
         {
-            "heading": f"{topic} comparison: fastest path vs highest-quality path",
+            "heading": f"Limitations and open questions about {topic}",
             "subsections": [
-                "Where speed wins",
-                "Where depth and accuracy matter more",
+                "Important caveats or unresolved points",
+                "What readers should not assume",
             ],
         },
         {
-            "heading": f"Common mistakes that make {topic} output weaker",
+            "heading": f"What to remember about {topic}",
             "subsections": [
-                "Signs your process is too generic",
-                "How to fix weak sections quickly",
+                "The most relevant takeaways",
+                "A next step only if it serves the reader's goal",
             ],
         },
     ]
@@ -350,11 +350,11 @@ def enforce_faq_section(sections, topic):
             cleaned_faq.append(question)
 
     fallback_faq = [
-        f"What is the best way to start with {topic}?",
-        f"How long does it take to get results from {topic}?",
-        f"What are the biggest mistakes people make with {topic}?",
-        f"How do I improve quality when using {topic}?",
-        f"When should I choose a different approach instead of {topic}?",
+        f"What does {topic} involve?",
+        f"What factors matter most when considering {topic}?",
+        f"How does context affect {topic}?",
+        f"What are the main limitations or misconceptions about {topic}?",
+        f"When is {topic} most relevant?",
     ]
 
     merged_faq = cleaned_faq[:8]
@@ -429,7 +429,7 @@ def outline_agent(state):
                 retry_error,
             )
             outline = {
-                "title": f"{state.get('topic', 'Topic')}: practical guide",
+                "title": str(state.get("topic", "Topic")).strip(),
                 "sections": fallback_outline(
                     state.get("topic", ""),
                     plan.get("blog_type", "informational"),

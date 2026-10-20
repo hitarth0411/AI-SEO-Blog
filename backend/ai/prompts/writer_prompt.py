@@ -35,7 +35,10 @@ RULES
 6. Use only entities, tools, facts, comparisons, limitations, and claims supported by the provided research.
 7. Do not invent pricing, features, numbers, or brand names not present in research.
 8. Make the blog naturally SEO-friendly without keyword stuffing.
-9. Include practical guidance, trade-offs, mistakes, and decision support where relevant.
+9. Include practical guidance, trade-offs, mistakes, or decision support only
+   when they genuinely fit this topic and reader intent. Keep any guidance
+   specific to the topic; do not add generic steps, tools, or advice to fill
+   space.
 10. Avoid generic phrasing like "in today's world", "this article discusses", "various aspects", or "helps users".
 11. Use markdown heading depth up to H3 only. Never use #### or deeper headings.
 12. Do not repeat the title in plain text after the H1.
@@ -85,6 +88,7 @@ Rules:
 - Return section body only, no heading.
 - Cover every subsection idea.
 - Use only supported entities and claims from research.
-- Include practical guidance, not filler.
+- Include practical guidance only when it is relevant and actionable for this
+  topic. Keep it specific; do not force generic steps, tools, or advice.
 - If is_table is true, include one markdown table only when supported by research.
 """
